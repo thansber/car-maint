@@ -1,0 +1,162 @@
+#cars ul,#cars li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#cars .car-list {
+    float: left;
+    overflow: auto;
+    padding-top: 0.5em;
+    position: fixed;
+    width: 15%;
+}
+
+
+#cars .car-list li {
+    margin: 0 0 0.4em 0;
+    text-align: center;
+}
+
+#cars .car-list .car {
+    border-radius: 16px 0 0 16px;
+    cursor: pointer;
+    padding: 0.4em 0.3em 0.5em;
+}
+
+#cars .car-list .car.light {
+    color: rgb(238, 238, 238);
+}
+
+#cars .car-list .car.dark {
+    color: rgb(8, 8, 8);
+}
+
+#cars .car-list .add-work {
+    opacity: 0;
+    padding: 0.3em 0;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+#cars .car-list .add-work.displayed {
+    opacity: 1;
+}
+
+#cars .items {
+    float: left;
+    margin: 0.5em 0 0 15.2%;
+    overflow: auto;
+    padding: 0.3em 1em;
+    width: 82%;
+}
+
+#cars .items.light {
+    color: rgb(238, 238, 238);
+}
+
+#cars .items.dark {
+    color: rgb(8, 8, 8);
+}
+
+#cars .items .close {
+    display: none;
+    margin-right: 1em;
+}
+
+#cars .items .new {
+    height: 0;
+    margin-top: 1em;
+    overflow: hidden;
+    padding: 1em 0.5% 0;
+    transition-property: height;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+}
+
+#cars .items .new.displayed {
+    height: 19em;
+}
+
+#cars .items .new input {
+    font-size: 1.2em;
+}
+
+#cars .items .new .date {
+    float: left;
+    width: 10em;
+}
+
+#cars .items .new .price {
+    float: right;
+    text-align: right;
+    width: 20%;
+}
+
+#cars .items .new .who {
+    clear: both;
+    float: left;
+    margin-top: 0.5em;
+    width: 50%;
+}
+
+#cars .items .new .mileage {
+    float: right;
+    margin-top: 0.5em;
+    text-align: right;
+    width: 20%;
+}
+
+#cars .items .new .desc {
+    font-family: Verdana;
+    font-size: 1em;
+    height: 4em;
+    margin-top: 1em;
+    padding: 0.75% 0.5%;
+    width: 99%;
+}
+
+#cars .items .new .save {
+    margin: 1em 2em 0 0;
+}
+
+#cars .items .item {
+    margin-bottom: 1em;
+    overflow: auto;
+    width: 40%;
+}
+
+#cars .items .item .editable .edit {
+    display: none;
+}
+
+#cars .items .item .date {
+    float: left;
+}
+
+#cars .items .item .date .value,
+#cars .items .item .price .value {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+
+#cars .items .item .price {
+    float: right;
+    text-align: right;
+}
+
+#cars .items .item .who {
+    clear: both;
+    float: left;
+}
+
+#cars .items .item .mileage {
+    float: right;
+    text-align: right;
+}
+
+#cars .items .item .desc {
+    clear: both;
+}
