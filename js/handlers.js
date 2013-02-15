@@ -36,66 +36,61 @@ function($, Cars, Dialog, Work) {
   return {
     init: function() {
       
-      $("#cars .car-list").on("click", function(e) {
-        var $target = $(e.target);
-        if ($target.hasClass("car")) {
-          choiceChanged($target);
-          $target.siblings(".add-work").addClass("displayed");
-          $target.siblings(".car").css({backgroundColor:""}).removeClass("light dark");
-          Cars.updateColor($target, $target);
-          Work.updateColor($target);
-          Work.showForSelectedCar({clear:true});
-        } else if ($target.parent().hasClass("add-work")) {
-          $(this).siblings(".items")
-                 .find(".add .new").addClass("displayed").end()
-                 .find(".add .close").show();
-        } else if ($target.parent().hasClass("add-car")) {
-          Dialog.show("cars");
-          Dialog.getColorPicker().setHex("FFFFFF");
-        }
-      });
-      
-      $("#cars .items .close").on("click", function() {
+      $("#cars").on("click", ".car-list .car", function() {
+        var $this = $(this);
+        choiceChanged($this);
+        $this.siblings(".add-work").addClass("displayed");
+        $this.siblings(".car").css({backgroundColor:""}).removeClass("light dark");
+        Cars.updateColor($this, $this);
+        Work.updateColor($this);
+        Work.showForSelectedCar({clear:true});
+      }).on("click", ".car-list .add-work .add", function() {
+        $(this).closest(".car-list")
+            .siblings(".items")
+            .find(".add .new").addClass("displayed").end()
+            .find(".add .close").show();
+      }).on("click", ".car-list .add-car .add", function() {
+        Dialog.show("cars");
+        Dialog.getColorPicker().setHex("FFFFFF");
+      }).on("click", ".items .close", function() {
         $(this).closest(".new").removeClass("displayed").end().hide();
-      });
-      
-      $("#cars .items .new .save").on("click", function() {
+      }).on("click", ".items .value", function() {
+        $(this).parent().toggleClass("editable editing").find(".edit").focus().select();
+      }).on("click", ".items .new .save", function() {
         Work.add();
+      }).on("click", ".items .delete", function() {
+        Work.remove($(this));
+      }).on("focusout", ".items .edit", function() {
+        var $this = $(this);
+        Work.update($this);
+        $this.parent().toggleClass("editable editing");
       });
       
       // =====================================
       // -------------- DIALOGS --------------
       // =====================================
-      $("#dialogs .close").click(function() {
+      $("#dialogs").on("click", ".close", function() {
         Dialog.hide();
         return false;
-      });
-      
-      $("#dialogs button").click(function(e) {
-        var $target = $(e.target);
-        var $dialog = $target.closest("section");
-        
+      }).on("click", "button", function() {
+        var $this =  $(this);
+        var $dialog = $this.closest("section");
         for (var cssClass in dialogButtons) {
           var handlers = dialogButtons[cssClass] && (dialogButtons[cssClass].handlers || {});
           if ($dialog.is(cssClass)) {
             for (var buttonHandler in handlers) {
-              if ($target.hasClass(buttonHandler)) {
-                handlers[buttonHandler].call(this, $dialog, $target);
+              if ($this.hasClass(buttonHandler)) {
+                handlers[buttonHandler].call(this, $dialog, $this);
               }
             }
           }
-        };
-        
+        }
         return false;
-      });
-      
-      $("#dialogs .dialog").on("transitionend webkitTransitionEnd", function() {
+      }).on("transitionend webkitTransitionEnd", ".dialog", function() {
         if ($(this).is(":not(.displayed)")) {
           $("#dialogs").addClass("hidden");
         }
-      });
-      
-      $("#dialogs .cars.dialog input").on("focus", function() {
+      }).on("focus", ".cars.dialog input", function() {
         $(this).closest(".row").removeClass("error");
       });
       

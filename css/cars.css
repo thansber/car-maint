@@ -123,12 +123,8 @@
 
 #cars .items .item {
     margin-bottom: 1em;
-    overflow: auto;
-    width: 40%;
-}
-
-#cars .items .item .editable .edit {
-    display: none;
+    position: relative;
+    width: 50%;
 }
 
 #cars .items .item .date {
@@ -159,4 +155,51 @@
 
 #cars .items .item .desc {
     clear: both;
+}
+
+#cars .items .item .desc .value {
+    display: inline-block;
+    height: 1em;
+    width: 100%;
+}
+
+#cars .items .item .delete {
+    background-image: url(../images/cross-button.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    height: 20px;
+    position: absolute;
+    right: -2em;
+    top: 0.1em;
+    width: 20px;
+}
+
+#cars .items .item .editable {
+    height: 1.5em;
+}
+
+#cars .items .item .editable .edit {
+    display: none;
+}
+
+#cars .items .item .editing .value {
+    display: none;
+}
+
+#cars .items .item .editing input {
+    font-size: 1.1em;
+}
+
+#cars .items .item .price .edit {
+    text-align: right;
+}
+
+#cars .items .item .mileage .edit {
+    text-align: right;
+}
+
+#cars .items .item .desc .edit {
+    font-size: 1.1em;
+    resize: none;
+    width: 75%;
 }

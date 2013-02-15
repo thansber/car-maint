@@ -1,6 +1,6 @@
 define( /* Storage */
-["jquery", "io"],
-function($, IO) {
+["jquery", "io", "util"],
+function($, IO, Util) {
 
   var cars = null;
   var MAIN_KEY = "CAR_MAINT";
@@ -19,6 +19,7 @@ function($, IO) {
       var car = getCar(id);
       car.work = car.work || [];
       car.work.push(newWork);
+      car.work.sort(Util.sortByDate);
       saveCars();
     },
     getCar: getCar,
@@ -26,6 +27,10 @@ function($, IO) {
     getNumCars: function() { return getCarIds().length; },
     init: function() {
     	  cars = getCars();
+    },
+    updateCar: function(id, updatedCar) {
+      cars[id] = updatedCar;
+      saveCars();
     }
   };
 });	
