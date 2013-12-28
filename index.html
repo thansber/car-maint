@@ -3,8 +3,8 @@
 <head>
   <meta charset=utf-8>
   <title>Car Maintenace</title>
-  <link rel="stylesheet" href="css/main.css"/> 
-  <link rel="stylesheet" href="css/cars.css"/> 
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/cars.css"/>
   <link rel="stylesheet" href="css/dialogs.css"/>
   <!--[if lt IE 9]>
   <script src="${staticUri}ui/js/lib/html5.js"></script>
@@ -16,64 +16,64 @@
 <div id="version">v0.1</div>
 
 <section id="cars">
-	<ul class="car-list">
-		<!-- populated by Javascript -->
-		<li class="add-work">
-			<button class="gray add">I had work done on this car</button>
-		</li>
-		<li class="add-car">
-			<button class="gray add">Add a new car</button>
-		</li>
-	</ul>
-	<ul class="items">
-		<li class="add">
-			<div class="new">
-				<input type="text" class="date" placeholder="Date work was done" />
-				<input type="text" class="price" placeholder="Price of work" />
-				<input type="text" class="who" placeholder="Who performed the work" />
-				<input type="text" class="mileage" placeholder="What was the mileage" />
-				<textarea class="desc" placeholder="Enter any descriptive information about the work"></textarea>
-				<button class="gray save">Save</button>
-				<button class="gray close">Close</button>
-			</div>
-		</li>
-		<!-- other items are added by Javascript -->
-	</ul>
+  <ul class="car-list">
+    <!-- populated by Javascript -->
+    <li class="add-work">
+      <button class="gray add">I had work done on this car</button>
+    </li>
+    <li class="add-car">
+      <button class="gray add">Add a new car</button>
+    </li>
+  </ul>
+  <ul class="items">
+    <li class="add">
+      <div class="new">
+        <input type="text" class="date" placeholder="Date work was done" />
+        <input type="text" class="price" placeholder="Price of work" />
+        <input type="text" class="who" placeholder="Who performed the work" />
+        <input type="text" class="mileage" placeholder="What was the mileage" />
+        <textarea class="desc" placeholder="Enter any descriptive information about the work"></textarea>
+        <button class="gray save">Save</button>
+        <button class="gray close">Close</button>
+      </div>
+    </li>
+    <!-- other items are added by Javascript -->
+  </ul>
 </section>
 
 <section id="dialogs" class="hidden">
 
-    <section class="cars dialog">
-  	  	<h1>Add a new car<a class="close">X</a></h1>
-  	  	<div class="content">
-	  		<div class="year row"><input type="text" placeholder="Year car was made" /><p class="error"></p></div>
- 	  		<div class="make row"><input type="text" placeholder="Make of the car (Toyota, Ford, Subaru)" /><p class="error"></p></div>
- 			<div class="model row"><input type="text" placeholder="Model of the car (Camry, Focus, Outback)" /><p class="error"></p></div>
-  	  		<div class="color row">
-	 	  		<label>What color is your car?</label>
-	 	  		<label>(Select a color from the palette to the right)</label>
-	 	  		<div class="swatch"></div>
-	 	  		<div class="value color-picker">
-	 	  			<div class="picker-wrapper">
-	 	  				<div id="picker" class="picker"></div>
-	 	  				<div id="picker-indicator" class="picker-indicator"></div>
-		  			</div>
-	        		<div class="slider-wrapper">
-	        			<div id="slide" class="slide"></div>
-	        			<div id="slide-indicator" class="slide-indicator"></div>
-	        		</div>
-	        	</div>
-        		<input type="hidden" id="selectedColor" value="" />
-  	  		</div>
-  	  		<div class="actions">
-        		<button class="save green">Save this car</button>
-        		<button class="red done">I am done adding cars</button>
-        		<div class="message"></div>
-      		</div>
-  		</div>
-  	</section>
-  
-  	<div class="background"></div>
+  <section class="cars dialog">
+    <h1>Add a new car<a class="close">X</a></h1>
+    <div class="content">
+      <div class="year row"><input type="text" placeholder="Year car was made" /><p class="error"></p></div>
+      <div class="make row"><input type="text" placeholder="Make of the car (Toyota, Ford, Subaru)" /><p class="error"></p></div>
+      <div class="model row"><input type="text" placeholder="Model of the car (Camry, Focus, Outback)" /><p class="error"></p></div>
+      <div class="color row">
+        <label>What color is your car?</label>
+        <label>(Select a color from the palette to the right)</label>
+        <div class="swatch"></div>
+        <div class="value color-picker">
+          <div class="picker-wrapper">
+            <div id="picker" class="picker"></div>
+            <div id="picker-indicator" class="picker-indicator"></div>
+          </div>
+          <div class="slider-wrapper">
+            <div id="slide" class="slide"></div>
+            <div id="slide-indicator" class="slide-indicator"></div>
+          </div>
+        </div>
+        <input type="hidden" id="selectedColor" value="" />
+      </div>
+      <div class="actions">
+        <button class="save green">Save this car</button>
+        <button class="red done">I am done adding cars</button>
+        <div class="message"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="background"></div>
 </section>
 
 <script src="js/lib/prefixfree.min.js"></script>
